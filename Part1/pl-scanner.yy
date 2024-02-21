@@ -99,7 +99,7 @@ ALPHA [a-zA-Z]
            return L_INTEGER;
          }
 
-@{ALPHA}[a-zA-Z]+ { 
+^@[a-z](([a-z])|([0-9])|(_))*$ { 
   
            return T_ID;
          }
