@@ -24,7 +24,8 @@
 #define OP_GT 226
 #define OP_LEQ 227
 #define OP_GEQ 228
-#define OP_EQ  229
+// OP_EQ is ==
+#define OP_EQ 229
 // OP_DIFF is ~=
 #define OP_DIFF 230
 // OP_PLUSPLUS is ++
@@ -43,4 +44,3 @@
 #define L_FLOAT 242
 
 #define T_EOF 280
-

@@ -36,9 +36,60 @@ ALPHA [a-zA-Z]
            return ';'; 
          }
 
-"="      { 
-           return OP_ASSIGN; 
+"+"      { 
+            return OP_ADD;
          }
+
+"-"     {
+            return OP_SUB;
+        }
+
+"*"      {
+            return OP_MUL;
+         }
+
+"/"       {
+            return OP_DIV;
+          }
+
+"="      { 
+            return OP_ASSIGN; 
+         }
+
+"<"      {
+            return OP_LT;
+         }
+
+">"       {
+            return OP_GT;
+          }
+
+"~="      {
+            return OP_DIFF;
+          }
+
+"=="      {
+            return OP_EQ;
+          }
+
+"+="     { 
+           return OP_ADDINC; 
+         }
+
+"++"     { 
+           return OP_PLUSPLUS; 
+         }
+
+"<="     { 
+           return OP_LEQ; 
+         }
+
+">="     { 
+           return OP_GEQ; 
+         }
+
+
+
 
 "MAIN"   { 
            return K_MAIN; 
@@ -48,7 +99,8 @@ ALPHA [a-zA-Z]
            return L_INTEGER;
          }
 
-{ALPHA}+ { 
+@{ALPHA}[a-zA-Z]+ { 
+  
            return T_ID;
          }
 
