@@ -99,9 +99,16 @@ ALPHA [a-zA-Z]
            return L_INTEGER;
          }
 
+// Identifiers
 ^@[a-z](([a-z])|([0-9])|(_))*$ { 
   
            return T_ID;
+         }
+
+// Floating-point number
+^(|\+|-)[0-9]+.[0-9]+$ { 
+  
+           return L_FLOAT;
          }
 
 <<EOF>>  { return T_EOF ; }
