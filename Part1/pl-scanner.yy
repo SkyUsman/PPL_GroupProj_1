@@ -95,21 +95,67 @@ ALPHA [a-zA-Z]
            return K_MAIN; 
          }
 
-{DIGIT}+ { 
+"INTEGER"   { 
+              return K_INTEGER; 
+            }
+
+"FLOAT"     { 
+              return K_FLOAT; 
+            }
+
+"FOREACH"   { 
+              return K_FOREACH; 
+            }
+
+"BEGIN"     { 
+              return K_BEGIN; 
+            }
+
+"END"       { 
+              return K_END; 
+            }
+
+"REPEAT"    { 
+              return K_REPEAT; 
+            }
+
+"UNTIL"     { 
+              return K_UNTIL; 
+            }
+
+"WHILE"     { 
+              return K_WHILE; 
+            }
+
+"DECLARE"   { 
+              return K_DECLARE; 
+            }
+
+"IF"        { 
+              return K_IF; 
+            }
+
+"THEN"      { 
+              return K_THEN; 
+            }
+
+"PRINT"     { 
+              return K_PRINT; 
+            }
+
+
+[+-]?[0-9]+\.[0-9]+$ {
+  return L_FLOAT;
+}
+
+[0-9]+ { 
            return L_INTEGER;
          }
 
-// Identifiers
-^@[a-z](([a-z])|([0-9])|(_))*$ { 
-  
-           return T_ID;
-         }
+^@[a-z](([a-z])|([0-9])|(_))*$  { 
+                                  return T_ID;
+                                }
 
-// Floating-point number
-^(|\+|-)[0-9]+.[0-9]+$ { 
-  
-           return L_FLOAT;
-         }
 
 <<EOF>>  { return T_EOF ; }
 .        { printf ("Unexpected character\n"); exit (1); }
